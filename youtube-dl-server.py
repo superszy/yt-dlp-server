@@ -28,7 +28,7 @@ app_defaults = {
 
 
 async def dl_queue_list(request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 
 async def q_put(request):
@@ -108,6 +108,8 @@ def get_ydl_options(request_options):
         "download_archive": ydl_vars["YDL_ARCHIVE_FILE"],
         "updatetime": ydl_vars["YDL_UPDATE_TIME"] == "True",
         "source_address": ydl_vars["YDL_SOURCE_ADDRESS"],
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
+        "referer": "https://www.youtube.com/",
     }
 
 
